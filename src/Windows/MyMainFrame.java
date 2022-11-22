@@ -1,66 +1,87 @@
 package Windows;
 
-import Wagon.WagonManager;
-
 import javax.swing.*;
 import java.awt.*;
 
 public class MyMainFrame extends JFrame {
-    JButton wagonAdd;
-    JButton calculation;
-    WagonManager manager = new WagonManager();
 
-    public WagonManager getManager() {
-        return manager;
-    }
+    static JButton wagonAdd;
+    AddWagonWindow wagonWindow =  new AddWagonWindow();;
 
-    public MyMainFrame(){
+    public MyMainFrame() {
+        wagonWindow.setVisible(false);
+
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setTitle("Расчет средних значений вагонов");
-        this.setSize(710,300);
+        this.setSize(640, 250);
         this.setLayout(null);
         this.setResizable(false);
+        this.setLocation(500,300);
         ImageIcon titleIcon = new ImageIcon("images/wagon.png");
         this.setIconImage(titleIcon.getImage());
         this.getContentPane().setBackground(Color.white);
 
-        calculation = new JButton();
-        calculation.setBounds(210,50,190,180);
-        calculation.setText("обработка");
+        JButton calculation = new JButton("обработка");
+        calculation.setBounds(210, 20, 190, 180);
         calculation.setFont(new Font(null, Font.BOLD, 10));
         calculation.setIcon(new ImageIcon("images/counting.png"));
         calculation.setVerticalTextPosition(JButton.BOTTOM);
         calculation.setHorizontalTextPosition(JButton.CENTER);
         calculation.setVerticalAlignment(JButton.TOP);
         calculation.setBackground(Color.white);
-        calculation.setBorder(BorderFactory.createLineBorder(Color.black,3));
-        
-        wagonAdd = new JButton();
-        wagonAdd.setBounds(10,50,190,180);
-        wagonAdd.setText("Добавить вагон");
+        calculation.setBorder(BorderFactory.createLineBorder(Color.black, 3));
+
+        wagonAdd = new JButton("Добавить вагон");
+        wagonAdd.setBounds(10, 20, 190, 180);
         wagonAdd.setFont(new Font(null, Font.BOLD, 10));
         wagonAdd.setIcon(new ImageIcon("images/96100.png"));
         wagonAdd.setVerticalTextPosition(JButton.BOTTOM);
         wagonAdd.setHorizontalTextPosition(JButton.CENTER);
         wagonAdd.setVerticalAlignment(JButton.TOP);
         wagonAdd.setBackground(Color.white);
-        wagonAdd.setBorder(BorderFactory.createLineBorder(Color.black,3));
+        wagonAdd.setBorder(BorderFactory.createLineBorder(Color.black, 3));
+
+        JButton clearing = new JButton("обработка");
+        clearing.setBounds(410, 20, 190, 180);
+        clearing.setFont(new Font(null, Font.BOLD, 10));
+        clearing.setIcon(new ImageIcon("images/clearing.png"));
+        clearing.setVerticalTextPosition(JButton.BOTTOM);
+        clearing.setHorizontalTextPosition(JButton.CENTER);
+        clearing.setVerticalAlignment(JButton.TOP);
+        clearing.setBackground(Color.white);
+        clearing.setBorder(BorderFactory.createLineBorder(Color.black, 3));
 
         this.add(wagonAdd);
         this.add(calculation);
+        this.add(clearing);
 
-
-        wagonAdd.addActionListener(e ->{
-            new AddWagonWindow();
-            wagonAdd.setEnabled(false);
-        });
-
-
-        calculation.addActionListener(e ->{
-            System.out.println(manager.getWagons());
-        });
 
         this.setVisible(true);
 
+        wagonAdd.addActionListener(e ->{
+            wagonAdd.setEnabled(false);
+           wagonWindow.setVisible(true);
+        });
+
+        calculation.addActionListener(e ->{
+            wagonWindow.wagonAver.nettoFuller();
+            wagonWindow.wagonAver.operations();
+
+            JOptionPane.showMessageDialog(null, "Общее Нетто: " +  wagonWindow.wagonAver.getFullNetto() + "\n"
+                    + "средняя влажность: " +  wagonWindow.wagonAver.getMeanHumidity() + "\n"
+                    + "средняя натура: " +  wagonWindow.wagonAver.getMeanNature() + "\n"
+                    + "средняя клейковина: " +  wagonWindow.wagonAver.getMeanGluten() + "\n"
+                    + "средняя сорная примесь: " +  wagonWindow.wagonAver.getMeanWeedAdmixture() + "\n"
+                    + "средняя зерновая примесь: " +  wagonWindow.wagonAver.getMeanGrainAdmixture(), " Средние данные ", JOptionPane.INFORMATION_MESSAGE);
+        });
+
+
+
+        clearing.addActionListener(e ->{
+            wagonWindow.wagonAver.clearAllStuff();
+        });
+
     }
+
+
 }

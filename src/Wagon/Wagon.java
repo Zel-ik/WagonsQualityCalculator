@@ -20,6 +20,30 @@ public class Wagon {
         this.grainAdmixture = grainAdmixture;
     }
 
+    public int getNetto() {
+        return netto;
+    }
+
+    public double getHumidity() {
+        return humidity;
+    }
+
+    public double getNature() {
+        return nature;
+    }
+
+    public double getGluten() {
+        return gluten;
+    }
+
+    public double getWeedAdmixture() {
+        return weedAdmixture;
+    }
+
+    public double getGrainAdmixture() {
+        return grainAdmixture;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

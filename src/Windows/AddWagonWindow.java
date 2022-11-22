@@ -1,17 +1,18 @@
 package Windows;
 
 import Wagon.Wagon;
-import Wagon.WagonManager;
+import Wagon.WagonAverageQualitiesCalculator;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionListener;
 import java.util.ArrayList;
+import java.util.List;
 
 
 public class AddWagonWindow extends JFrame {
-
-    MyMainFrame frame = new MyMainFrame();
-    WagonManager  manager = frame.getManager();
+    List<Wagon> wagonsList = new ArrayList<>();
+    WagonAverageQualitiesCalculator wagonAver = new WagonAverageQualitiesCalculator();
 
     JTextField netto;
     JTextField humidity;
@@ -20,13 +21,13 @@ public class AddWagonWindow extends JFrame {
     JTextField weedAdmixture;
     JTextField grainAdmixture;
 
-
-    public AddWagonWindow(){
+    public AddWagonWindow() {
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setTitle("Ввод данных одного вагона");
-        this.setSize(400,400);
-        this.setLayout(new GridLayout(7,2, 5,5));
+        this.setSize(400, 400);
+        this.setLayout(new GridLayout(7, 2, 5, 5));
         this.setResizable(false);
+        this.setLocation(450,350);
         ImageIcon titleIcon = new ImageIcon("images/wagon.png");
         this.setIconImage(titleIcon.getImage());
         this.getContentPane().setBackground(Color.white);
@@ -46,7 +47,7 @@ public class AddWagonWindow extends JFrame {
         gluten = new JTextField("0.0");
         gluten.setHorizontalAlignment(SwingConstants.RIGHT);
         gluten.setBorder(BorderFactory.createLineBorder(Color.BLACK, 2));
-        
+
         weedAdmixture = new JTextField("0.0");
         weedAdmixture.setHorizontalAlignment(SwingConstants.RIGHT);
         weedAdmixture.setBorder(BorderFactory.createLineBorder(Color.BLACK, 2));
@@ -56,54 +57,66 @@ public class AddWagonWindow extends JFrame {
         grainAdmixture.setBorder(BorderFactory.createLineBorder(Color.BLACK, 2));
 
         JLabel nettoLabel = new JLabel("Введите нетто вагона");
-        nettoLabel.setFont(new Font(null, Font.PLAIN,15));
-        nettoLabel.setBorder(BorderFactory.createLineBorder(Color.black,2));
+        nettoLabel.setFont(new Font(null, Font.PLAIN, 15));
+        nettoLabel.setBorder(BorderFactory.createLineBorder(Color.black, 2));
         this.add(nettoLabel);
         this.add(netto);
 
         JLabel humidityLabel = new JLabel("Введите влажность");
-        humidityLabel.setBorder(BorderFactory.createLineBorder(Color.black,2));
-        humidityLabel.setFont(new Font(null, Font.PLAIN,15));
+        humidityLabel.setBorder(BorderFactory.createLineBorder(Color.black, 2));
+        humidityLabel.setFont(new Font(null, Font.PLAIN, 15));
         this.add(humidityLabel);
         this.add(humidity);
 
         JLabel natureLabel = new JLabel("Введите натуру");
-        natureLabel.setBorder(BorderFactory.createLineBorder(Color.black,2));
-        natureLabel.setFont(new Font(null, Font.PLAIN,15));
+        natureLabel.setBorder(BorderFactory.createLineBorder(Color.black, 2));
+        natureLabel.setFont(new Font(null, Font.PLAIN, 15));
         this.add(natureLabel);
         this.add(nature);
 
         JLabel glutenLabel = new JLabel("Введите клейковину");
-        glutenLabel.setBorder(BorderFactory.createLineBorder(Color.black,2));
-        glutenLabel.setFont(new Font(null, Font.PLAIN,15));
+        glutenLabel.setBorder(BorderFactory.createLineBorder(Color.black, 2));
+        glutenLabel.setFont(new Font(null, Font.PLAIN, 15));
         this.add(glutenLabel);
         this.add(gluten);
 
         JLabel weedAdmixtureLabel = new JLabel("Введите сорную примесь");
-        weedAdmixtureLabel.setBorder(BorderFactory.createLineBorder(Color.black,2));
-        weedAdmixtureLabel.setFont(new Font(null, Font.PLAIN,15));
+        weedAdmixtureLabel.setBorder(BorderFactory.createLineBorder(Color.black, 2));
+        weedAdmixtureLabel.setFont(new Font(null, Font.PLAIN, 15));
         this.add(weedAdmixtureLabel);
         this.add(weedAdmixture);
 
         JLabel grainAdmixtureLabel = new JLabel("Введите сорную примесь");
-        grainAdmixtureLabel.setBorder(BorderFactory.createLineBorder(Color.black,2));
-        grainAdmixtureLabel.setFont(new Font(null, Font.PLAIN,15));
+        grainAdmixtureLabel.setBorder(BorderFactory.createLineBorder(Color.black, 2));
+        grainAdmixtureLabel.setFont(new Font(null, Font.PLAIN, 15));
         this.add(grainAdmixtureLabel);
         this.add(grainAdmixture);
 
-        JButton escape = new JButton("Добавить данные");
-        this.add(escape);
+        JButton adding = new JButton("Добавить данные");
+        this.add(adding);
+
         JButton cancel = new JButton("отмена");
         this.add(cancel);
 
-        escape.addActionListener(e ->{
-            manager.addInList(new Wagon(
-                    Integer.parseInt(netto.getText()),
-                    Double.parseDouble(humidity.getText()),
-                    Double.parseDouble(nature.getText()),
-                    Double.parseDouble(gluten.getText()),
-                    Double.parseDouble(weedAdmixture.getText()),
-                    Double.parseDouble(grainAdmixture.getText())));
+        adding.addActionListener(e ->{
+            int wagonsNum = wagonsList.size();
+            try {
+                wagonsList.add(new Wagon(
+                        Integer.parseInt(netto.getText()),
+                        Double.parseDouble(humidity.getText()),
+                        Double.parseDouble(nature.getText()),
+                        Double.parseDouble(gluten.getText()),
+                        Double.parseDouble(weedAdmixture.getText()),
+                        Double.parseDouble(grainAdmixture.getText())
+                ));
+            } catch (NumberFormatException ex) {
+                JOptionPane.showMessageDialog(null, "Введена не цифра");
+            }
+            if(wagonsList.size() != wagonsNum) {
+                JOptionPane.showMessageDialog(null, "Вагон был добавлен");
+            }
+            wagonAver.setWagons(wagonsList);
+            MyMainFrame.wagonAdd.setEnabled(true);
             this.dispose();
         });
 
@@ -111,10 +124,8 @@ public class AddWagonWindow extends JFrame {
             this.dispose();
         });
 
-
-
-
         this.setVisible(true);
+
 
     }
 }
