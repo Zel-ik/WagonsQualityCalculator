@@ -67,12 +67,12 @@ public class MyMainFrame extends JFrame {
             wagonWindow.wagonAver.nettoFuller();
             wagonWindow.wagonAver.operations();
 
-            JOptionPane.showMessageDialog(null, "ќбщее Ќетто: " +  wagonWindow.wagonAver.getFullNetto() + "\n"
-                    + "средн€€ влажность: " +  wagonWindow.wagonAver.getMeanHumidity() + "\n"
-                    + "средн€€ натура: " +  wagonWindow.wagonAver.getMeanNature() + "\n"
-                    + "средн€€ клейковина: " +  wagonWindow.wagonAver.getMeanGluten() + "\n"
-                    + "средн€€ сорна€ примесь: " +  wagonWindow.wagonAver.getMeanWeedAdmixture() + "\n"
-                    + "средн€€ зернова€ примесь: " +  wagonWindow.wagonAver.getMeanGrainAdmixture(), " —редние данные ", JOptionPane.INFORMATION_MESSAGE);
+            JOptionPane.showMessageDialog(null, "ќбщее нетто: " +  wagonWindow.wagonAver.getFullNetto() + "\n"
+                    + "—редн€€ влажность: " +  wagonWindow.wagonAver.getMeanHumidity() + "\n"
+                    + "—редн€€ натура: " +  wagonWindow.wagonAver.getMeanNature() + "\n"
+                    + "—редн€€ клейковина: " +  wagonWindow.wagonAver.getMeanGluten() + "\n"
+                    + "—редн€€ сорна€ примесь: " +  wagonWindow.wagonAver.getMeanWeedAdmixture() + "\n"
+                    + "—редн€€ зернова€ примесь: " +  wagonWindow.wagonAver.getMeanGrainAdmixture(), " —редние данные ", JOptionPane.INFORMATION_MESSAGE);
         });
 
 
