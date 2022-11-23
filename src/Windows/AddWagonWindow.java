@@ -23,7 +23,7 @@ public class AddWagonWindow extends JFrame {
 
     public AddWagonWindow() {
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        this.setTitle("���� ������ ������ ������");
+        this.setTitle("Добавление нового вагона");
         this.setSize(400, 400);
         this.setLayout(new GridLayout(7, 2, 5, 5));
         this.setResizable(false);
