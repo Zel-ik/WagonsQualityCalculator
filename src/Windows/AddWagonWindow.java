@@ -32,27 +32,27 @@ public class AddWagonWindow extends JFrame {
         this.setIconImage(titleIcon.getImage());
         this.getContentPane().setBackground(Color.white);
 
-        netto = new JTextField("0");
+        netto = new JTextField("");
         netto.setBorder(BorderFactory.createLineBorder(Color.BLACK, 2));
         netto.setHorizontalAlignment(SwingConstants.RIGHT);
 
-        humidity = new JTextField("0.0");
+        humidity = new JTextField("");
         humidity.setBorder(BorderFactory.createLineBorder(Color.BLACK, 2));
         humidity.setHorizontalAlignment(SwingConstants.RIGHT);
 
-        nature = new JTextField("0.0");
+        nature = new JTextField("");
         nature.setBorder(BorderFactory.createLineBorder(Color.BLACK, 2));
         nature.setHorizontalAlignment(SwingConstants.RIGHT);
 
-        gluten = new JTextField("0.0");
+        gluten = new JTextField("");
         gluten.setHorizontalAlignment(SwingConstants.RIGHT);
         gluten.setBorder(BorderFactory.createLineBorder(Color.BLACK, 2));
 
-        weedAdmixture = new JTextField("0.0");
+        weedAdmixture = new JTextField("");
         weedAdmixture.setHorizontalAlignment(SwingConstants.RIGHT);
         weedAdmixture.setBorder(BorderFactory.createLineBorder(Color.BLACK, 2));
 
-        grainAdmixture = new JTextField("0.0");
+        grainAdmixture = new JTextField("");
         grainAdmixture.setHorizontalAlignment(SwingConstants.RIGHT);
         grainAdmixture.setBorder(BorderFactory.createLineBorder(Color.BLACK, 2));
 
