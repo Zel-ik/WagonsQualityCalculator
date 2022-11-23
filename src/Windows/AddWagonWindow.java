@@ -23,7 +23,7 @@ public class AddWagonWindow extends JFrame {
 
     public AddWagonWindow() {
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        this.setTitle("Ввод данных одного вагона");
+        this.setTitle("пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ");
         this.setSize(400, 400);
         this.setLayout(new GridLayout(7, 2, 5, 5));
         this.setResizable(false);
@@ -56,46 +56,46 @@ public class AddWagonWindow extends JFrame {
         grainAdmixture.setHorizontalAlignment(SwingConstants.RIGHT);
         grainAdmixture.setBorder(BorderFactory.createLineBorder(Color.BLACK, 2));
 
-        JLabel nettoLabel = new JLabel("Введите нетто вагона");
+        JLabel nettoLabel = new JLabel("Р’РІРµРґРёС‚Рµ РЅРµС‚С‚Рѕ: ");
         nettoLabel.setFont(new Font(null, Font.PLAIN, 15));
         nettoLabel.setBorder(BorderFactory.createLineBorder(Color.black, 2));
         this.add(nettoLabel);
         this.add(netto);
 
-        JLabel humidityLabel = new JLabel("Введите влажность");
+        JLabel humidityLabel = new JLabel("Р’РІРµРґРёС‚Рµ РІР»Р°Р¶РЅРѕСЃС‚СЊ: ");
         humidityLabel.setBorder(BorderFactory.createLineBorder(Color.black, 2));
         humidityLabel.setFont(new Font(null, Font.PLAIN, 15));
         this.add(humidityLabel);
         this.add(humidity);
 
-        JLabel natureLabel = new JLabel("Введите натуру");
+        JLabel natureLabel = new JLabel("Р’РІРµРґРёС‚Рµ РЅР°С‚СѓСЂСѓ: ");
         natureLabel.setBorder(BorderFactory.createLineBorder(Color.black, 2));
         natureLabel.setFont(new Font(null, Font.PLAIN, 15));
         this.add(natureLabel);
         this.add(nature);
 
-        JLabel glutenLabel = new JLabel("Введите клейковину");
+        JLabel glutenLabel = new JLabel("Р’РІРµРґРёС‚Рµ РєР»РµР№РєРѕРІРёРЅСѓ: ");
         glutenLabel.setBorder(BorderFactory.createLineBorder(Color.black, 2));
         glutenLabel.setFont(new Font(null, Font.PLAIN, 15));
         this.add(glutenLabel);
         this.add(gluten);
 
-        JLabel weedAdmixtureLabel = new JLabel("Введите сорную примесь");
+        JLabel weedAdmixtureLabel = new JLabel("Р’РІРµРґРёС‚Рµ СЃРѕСЂРЅСѓСЋ РїСЂРёРјРµСЃСЊ: ");
         weedAdmixtureLabel.setBorder(BorderFactory.createLineBorder(Color.black, 2));
         weedAdmixtureLabel.setFont(new Font(null, Font.PLAIN, 15));
         this.add(weedAdmixtureLabel);
         this.add(weedAdmixture);
 
-        JLabel grainAdmixtureLabel = new JLabel("Введите сорную примесь");
+        JLabel grainAdmixtureLabel = new JLabel("Р’РІРµРґРёС‚Рµ Р·РµСЂРЅРѕРІСѓСЋ РїСЂРёРјРµСЃСЊ: ");
         grainAdmixtureLabel.setBorder(BorderFactory.createLineBorder(Color.black, 2));
         grainAdmixtureLabel.setFont(new Font(null, Font.PLAIN, 15));
         this.add(grainAdmixtureLabel);
         this.add(grainAdmixture);
 
-        JButton adding = new JButton("Добавить данные");
+        JButton adding = new JButton("Р”РѕР±Р°РІРёС‚СЊ РІР°РіРѕРЅ");
         this.add(adding);
 
-        JButton cancel = new JButton("отмена");
+        JButton cancel = new JButton("РѕС‚РјРµРЅР°");
         this.add(cancel);
 
         adding.addActionListener(e ->{
@@ -110,10 +110,10 @@ public class AddWagonWindow extends JFrame {
                         Double.parseDouble(grainAdmixture.getText())
                 ));
             } catch (NumberFormatException ex) {
-                JOptionPane.showMessageDialog(null, "Введена не цифра");
+                JOptionPane.showMessageDialog(null, "Р’Р°РіРѕРЅ СѓСЃРїРµС€РЅРѕ РґРѕР±Р°РІР»РµРЅ");
             }
             if(wagonsList.size() != wagonsNum) {
-                JOptionPane.showMessageDialog(null, "Вагон был добавлен");
+                JOptionPane.showMessageDialog(null, "РЅРµ РїРѕР»СѓС‡РёР»РѕСЃСЊ РґРѕР±Р°РІРёС‚СЊ РІР°РіРѕРЅ");
             }
             wagonAver.setWagons(wagonsList);
             MyMainFrame.wagonAdd.setEnabled(true);
