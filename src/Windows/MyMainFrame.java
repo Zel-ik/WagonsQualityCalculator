@@ -12,8 +12,8 @@ public class MyMainFrame extends JFrame {
         wagonWindow.setVisible(false);
 
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        this.setTitle("Расчет средних значений вагонов");
-        this.setSize(640, 250);
+        this.setTitle("Р Р°СЃС‡РµС‚ СЃСЂРµРґРЅРёС… Р·РЅР°С‡РµРЅРёР№ РІР°РіРѕРЅРѕРІ");
+        this.setSize(660, 270);
         this.setLayout(null);
         this.setResizable(false);
         this.setLocation(500,300);
@@ -21,9 +21,9 @@ public class MyMainFrame extends JFrame {
         this.setIconImage(titleIcon.getImage());
         this.getContentPane().setBackground(Color.white);
 
-        JButton calculation = new JButton("обработка");
-        calculation.setBounds(210, 20, 190, 180);
-        calculation.setFont(new Font(null, Font.BOLD, 10));
+        JButton calculation = new JButton("РѕР±СЂР°Р±РѕС‚РєР°");
+        calculation.setBounds(220, 17, 200, 200);
+        calculation.setFont(new Font(null, Font.BOLD, 15));
         calculation.setIcon(new ImageIcon("images/counting.png"));
         calculation.setVerticalTextPosition(JButton.BOTTOM);
         calculation.setHorizontalTextPosition(JButton.CENTER);
@@ -31,9 +31,9 @@ public class MyMainFrame extends JFrame {
         calculation.setBackground(Color.white);
         calculation.setBorder(BorderFactory.createLineBorder(Color.black, 3));
 
-        wagonAdd = new JButton("Добавить вагон");
-        wagonAdd.setBounds(10, 20, 190, 180);
-        wagonAdd.setFont(new Font(null, Font.BOLD, 10));
+        wagonAdd = new JButton("Р”РѕР±Р°РІРёС‚СЊ РІР°РіРѕРЅ");
+        wagonAdd.setBounds(10, 17, 200, 200);
+        wagonAdd.setFont(new Font(null, Font.BOLD, 15));
         wagonAdd.setIcon(new ImageIcon("images/96100.png"));
         wagonAdd.setVerticalTextPosition(JButton.BOTTOM);
         wagonAdd.setHorizontalTextPosition(JButton.CENTER);
@@ -41,9 +41,9 @@ public class MyMainFrame extends JFrame {
         wagonAdd.setBackground(Color.white);
         wagonAdd.setBorder(BorderFactory.createLineBorder(Color.black, 3));
 
-        JButton clearing = new JButton("обработка");
-        clearing.setBounds(410, 20, 190, 180);
-        clearing.setFont(new Font(null, Font.BOLD, 10));
+        JButton clearing = new JButton("РћС‡РёСЃС‚РёС‚СЊ СЃРїРёСЃРѕРє");
+        clearing.setBounds(430, 17, 200, 200);
+        clearing.setFont(new Font(null, Font.BOLD, 15));
         clearing.setIcon(new ImageIcon("images/clearing.png"));
         clearing.setVerticalTextPosition(JButton.BOTTOM);
         clearing.setHorizontalTextPosition(JButton.CENTER);
@@ -67,12 +67,12 @@ public class MyMainFrame extends JFrame {
             wagonWindow.wagonAver.nettoFuller();
             wagonWindow.wagonAver.operations();
 
-            JOptionPane.showMessageDialog(null, "Общее нетто: " +  wagonWindow.wagonAver.getFullNetto() + "\n"
-                    + "Средняя влажность: " +  wagonWindow.wagonAver.getMeanHumidity() + "\n"
-                    + "Средняя натура: " +  wagonWindow.wagonAver.getMeanNature() + "\n"
-                    + "Средняя клейковина: " +  wagonWindow.wagonAver.getMeanGluten() + "\n"
-                    + "Средняя сорная примесь: " +  wagonWindow.wagonAver.getMeanWeedAdmixture() + "\n"
-                    + "Средняя зерновая примесь: " +  wagonWindow.wagonAver.getMeanGrainAdmixture(), " Средние данные ", JOptionPane.INFORMATION_MESSAGE);
+            JOptionPane.showMessageDialog(null, "РћР±С‰РµРµ РЅРµС‚С‚Рѕ: " +  wagonWindow.wagonAver.getFullNetto() + "\n"
+                    + "РЎСЂРµРґРЅСЏСЏ РІР»Р°Р¶РЅРѕСЃС‚СЊ: " +  wagonWindow.wagonAver.getMeanHumidity() + "\n"
+                    + "РЎСЂРµРґРЅСЏСЏ РЅР°С‚СѓСЂР°: " +  wagonWindow.wagonAver.getMeanNature() + "\n"
+                    + "РЎСЂРµРґРЅСЏСЏ РєР»РµР№РєРѕРІРёРЅР°: " +  wagonWindow.wagonAver.getMeanGluten() + "\n"
+                    + "РЎСЂРµРґРЅСЏСЏ СЃРѕСЂРЅР°СЏ РїСЂРёРјРµСЃСЊ: " +  wagonWindow.wagonAver.getMeanWeedAdmixture() + "\n"
+                    + "РЎСЂРµРґРЅСЏСЏ Р·РµСЂРЅРѕРІР°СЏ РїСЂРёРјРµСЃСЊ: " +  wagonWindow.wagonAver.getMeanGrainAdmixture(), " РЎСЂРµРґРЅРёРµ РґР°РЅРЅС‹Рµ ", JOptionPane.INFORMATION_MESSAGE);
         });
 
 
