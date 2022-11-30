@@ -110,10 +110,10 @@ public class AddWagonWindow extends JFrame {
                         Double.parseDouble(grainAdmixture.getText())
                 ));
             } catch (NumberFormatException ex) {
-                JOptionPane.showMessageDialog(null, "Вагон успешно добавлен");
+                JOptionPane.showMessageDialog(null, "не получилось добавить вагон");
             }
             if(wagonsList.size() != wagonsNum) {
-                JOptionPane.showMessageDialog(null, "не получилось добавить вагон");
+                JOptionPane.showMessageDialog(null, "Вагон успешно добавлен");
             }
             wagonAver.setWagons(wagonsList);
             MyMainFrame.wagonAdd.setEnabled(true);
